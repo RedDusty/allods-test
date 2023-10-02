@@ -5,11 +5,12 @@ const { icon, name, free, pay } = defineProps<{
   free?: string
   pay?: string
 }>()
+const imgURL = process.env.NODE_ENV === 'development' ? '' : import.meta.env.BASE_URL
 </script>
 
 <template>
   <div class="item-container roboto">
-    <img :src="'/img/items/' + icon + '.png'" alt="" width="64" height="64" />
+    <img :src="imgURL + 'img/items/' + icon + '.png'" alt="" width="64" height="64" />
     <div class="item-name">{{ name }}</div>
     <p>{{ free ? free : '-' }}</p>
     <p>{{ pay ? pay : '-' }}</p>
